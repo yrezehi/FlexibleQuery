@@ -18,7 +18,18 @@ namespace FlexibleQuery.Keywords
 
         private ConcurrentDictionary<string, IKeyword> CreateKeywords() => new()
         {
-            ["WHERE"] = Keyword.Of("WHERE")
+            ["<"] = Keyword.Of("<"),
+            ["<="] = Keyword.Of("<="),
+
+            [">"] = Keyword.Of(">"),
+            [">="] = Keyword.Of(">="),
+
+            ["=="] = Keyword.Of("=="),
+            ["!="] = Keyword.Of("!="),
+
+            ["OR"] = Keyword.Of("OR"),
+            ["AND"] = Keyword.Of("AND"),
+            ["NOT"] = Keyword.Of("NOT")
         };
     }
 }
