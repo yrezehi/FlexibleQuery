@@ -23,5 +23,7 @@ namespace FlexibleQuery.Keywords
             return JsonSerializer.Deserialize<IDictionary<string, Keyword>>(File.ReadAllText(Path))!;
         }
 
+        public Keyword Of(string key) =>
+            Keywords.TryGetValue(key, out Keyword? keyword) ? keyword : throw new KeyNotFoundException($"Couldn't find a keyword for key {key}");
     }
 }

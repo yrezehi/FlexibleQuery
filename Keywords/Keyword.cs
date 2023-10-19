@@ -7,13 +7,10 @@ namespace FlexibleQuery.Keywords
         public string Key { get; set; }
         public IList<string> Abbreviations { get; set; }
 
-        public Keyword(string key)
+        public Keyword(string key, IList<string> abbreviations)
         {
             Key = key;
-            Abbreviations;
+            Abbreviations = abbreviations;
         }
-
-        public static IKeyword Of(string key) =>
-            new Keyword(key);
     }
 }

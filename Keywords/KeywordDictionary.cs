@@ -6,9 +6,10 @@ namespace FlexibleQuery.Keywords
     public class KeywordDictionary
     {
         private readonly IDictionary<string, IKeyword> Keywords;
+        private readonly KeywordsLoader KeywordsLoader;
 
-        public KeywordDictionary() =>
-            Keywords = CreateKeywords();
+        public KeywordDictionary(string keywordsPath) =>
+            (Keywords, KeywordsLoader) = (CreateKeywords(), new KeywordsLoader(keywordsPath));
 
         public void Register(IKeyword keyword) =>
             Keywords.TryAdd(keyword.Key, keyword);
@@ -18,13 +19,13 @@ namespace FlexibleQuery.Keywords
 
         private ConcurrentDictionary<string, IKeyword> CreateKeywords() => new()
         {
-            ["OR"] = Keyword.Of("OR"),
-            ["AND"] = Keyword.Of("AND"),
+            ["OR"] = KeywordsLoader.Of("OR"),
+            ["AND"] = KeywordsLoader.Of("AND"),
 
-            ["LESS-THAN"] = Keyword.Of("LESS-THAN"),
-            ["MORE-THAN"] = Keyword.Of("MORE-THAN"),
+            ["LESS-THAN"] = KeywordsLoader.Of("LESS-THAN"),
+            ["MORE-THAN"] = KeywordsLoader.Of("MORE-THAN"),
 
-            ["EQUAL"] = Keyword.Of("EQUAL")
+            ["EQUAL"] = KeywordsLoader.Of("EQUAL")
         };
     }
 }
