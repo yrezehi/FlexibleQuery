@@ -27,5 +27,8 @@ namespace FlexibleQuery.Keywords
 
             ["EQUAL"] = KeywordsLoader.Of("EQUAL")
         };
+
+        public string GetByAbbreviations(string key) =>
+            Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key)).Key;
     }
 }
