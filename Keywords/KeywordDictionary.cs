@@ -5,15 +5,20 @@ namespace FlexibleQuery.Keywords
 {
     public class KeywordDictionary
     {
-        private readonly ConcurrentDictionary<string, IKeyword> Keywords;
+        private readonly IDictionary<string, IKeyword> Keywords;
 
         public KeywordDictionary() =>
-            Keywords = new();
+            Keywords = CreateKeywords();
 
         public void Register(IKeyword keyword) =>
             Keywords.TryAdd(keyword.Key, keyword);
 
         public void UnRegister(string keyword) =>
             Keywords.Remove(keyword, out _);
+
+        private ConcurrentDictionary<string, IKeyword> CreateKeywords() => new()
+        {
+            ["WHERE"] = Keyword.Of("WHERE")
+        };
     }
 }
