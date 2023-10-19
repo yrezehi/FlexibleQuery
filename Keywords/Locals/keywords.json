@@ -1,16 +1,19 @@
 {
-  "keywords": [
-    {
-      "key": "OR",
-      "abbreviation": ["or", "||", "او"]
+  "keywords": {
+    "OR": {
+      "abbreviations": [ "or", "|", "||", "او" ]
     },
-    {
-      "key": "LESS-THAN",
-      "abbreviation": ["less", "less than", "<", "اقل", "اقل من"]
+    "AND": {
+      "abbreviations": [ "AND", "&", "&&", "و" ]
     },
-    {
-      "key": "MORE-THAN",
-      "abbreviation": ["more", "more than", ">", "اكثر", "اكثر من"]
+    "LESS-THAN": {
+      "abbreviations": [ "less", "less than", "<", "اقل", "اقل من" ]
+    },
+    "MORE-THAN": {
+      "abbreviations": [ "more", "more than", ">", "اكثر", "اكثر من" ]
+    },
+    "EQUAL": {
+      "abbreviations": [ "equal", "equals", "=", "==", "يساوي" ]
     }
-  ]
+  }
 }
