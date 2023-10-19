@@ -1,7 +1,7 @@
 ﻿namespace FlexibleQuery.Keywords.Abstracts
 {
-    internal interface IKeyword
+    public interface IKeyword
     {
-        public string Keyword { get; set; }
+        public string Key { get; set; }
     }
 }
