@@ -1,0 +1,16 @@
+{
+  "keywords": [
+    {
+      "key": "OR",
+      "abbreviation": ["or", "||", "او"]
+    },
+    {
+      "key": "LESS-THAN",
+      "abbreviation": ["less", "less than", "<", "اقل", "اقل من"]
+    },
+    {
+      "key": "MORE-THAN",
+      "abbreviation": ["more", "more than", ">", "اكثر", "اكثر من"]
+    }
+  ]
+}
