@@ -5,7 +5,12 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleQuery", "FlexibleQuery.csproj", "{F6201421-1197-4A64-A022-3B3DF8FF4357}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimental", "..\Experimental\Experimental.csproj", "{B805758C-791C-42F1-8F48-3C3D884B76F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Experimental", "..\Experimental\Experimental.csproj", "{B805758C-791C-42F1-8F48-3C3D884B76F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DC40ED3B-B3DA-482D-8D39-2B41FF015B56}"
+	ProjectSection(SolutionItems) = preProject
+		FlexibleQuery.js = FlexibleQuery.js
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
