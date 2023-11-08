@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.IO;
+using System.Text.Json;
 
 namespace FlexibleQuery.Keywords
 {
@@ -7,11 +8,9 @@ namespace FlexibleQuery.Keywords
         public string Path { get; set; }
         public IDictionary<string, Keyword> Keywords { get; set; }
 
-        public KeywordsLoader(string path)
-        {
-            Path = path;
-            Keywords = this.Load();
-        }
+        public KeywordsLoader(string path) =>
+            (Keywords, Path) = (this.Load(), path);
+        
 
         private IDictionary<string, Keyword> Load()
         {

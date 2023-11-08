@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlexibleQuery.Keywords;
 
 namespace FlexibleQuery.Lexical
 {
     public static class Tokenizer {
 
+        // Yes it supposed to be null
         private static readonly char[]? TOKEN_SEPARTOR = null;
 
         public static IEnumerable<string> Tokenize(string query)
@@ -19,9 +16,14 @@ namespace FlexibleQuery.Lexical
 
             var tokens = new List<string>();
             
-            foreach(var character in query.Split(TOKEN_SEPARTOR))
+            foreach(var word in query.Split(TOKEN_SEPARTOR))
             {
+                var abbreviations = KeywordDictionary.GetByAbbreviations(word);
                 
+                if(abbreviations != null)
+                {
+                    tokens.Add(word);
+                }
             }
             
             return tokens;

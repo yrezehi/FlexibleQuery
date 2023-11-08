@@ -5,7 +5,7 @@ namespace FlexibleQuery.Keywords
 {
     public static class KeywordDictionary
     {
-        private static string KEYWORDS_PATH = "";
+        private static string KEYWORDS_PATH = "Locals\\keywords.json";
 
         private static readonly IDictionary<string, IKeyword> Keywords = CreateKeywords;
         private static readonly KeywordsLoader KeywordsLoader = new KeywordsLoader(KEYWORDS_PATH);
@@ -27,7 +27,7 @@ namespace FlexibleQuery.Keywords
             ["EQUAL"] = KeywordsLoader.Of("EQUAL")
         };
 
-        public static string GetByAbbreviations(string key) =>
-            Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key)).Key;
+        public static KeyValuePair<string, IKeyword>? GetByAbbreviations(string key) =>
+            Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key));
     }
 }
