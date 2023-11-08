@@ -13,6 +13,5 @@
         private static IList<string> Toknize(string query) =>
             query.Split(new char[] { ' ' });
 
-        private static 
     }
 }

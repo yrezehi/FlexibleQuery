@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexibleQuery", "FlexibleQuery.csproj", "{F6201421-1197-4A64-A022-3B3DF8FF4357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleQuery", "FlexibleQuery.csproj", "{F6201421-1197-4A64-A022-3B3DF8FF4357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimental", "..\Experimental\Experimental.csproj", "{B805758C-791C-42F1-8F48-3C3D884B76F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F6201421-1197-4A64-A022-3B3DF8FF4357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6201421-1197-4A64-A022-3B3DF8FF4357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6201421-1197-4A64-A022-3B3DF8FF4357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B805758C-791C-42F1-8F48-3C3D884B76F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B805758C-791C-42F1-8F48-3C3D884B76F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B805758C-791C-42F1-8F48-3C3D884B76F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B805758C-791C-42F1-8F48-3C3D884B76F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
