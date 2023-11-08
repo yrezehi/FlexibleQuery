@@ -23,5 +23,8 @@ namespace FlexibleQuery.Keywords
 
         public static KeyValuePair<string, Keyword>? GetByAbbreviations(string key) =>
             Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key));
+
+        public static bool Contains(string key) =>
+            Keywords.ContainsKey(key);
     }
 }
