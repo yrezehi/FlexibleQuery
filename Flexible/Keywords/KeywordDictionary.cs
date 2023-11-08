@@ -8,15 +8,9 @@ namespace FlexibleQuery.Keywords
         private static string KEYWORDS_PATH = "Keywords\\Locals\\keywords.json";
 
         private static readonly KeywordsLoader KeywordsLoader = new KeywordsLoader(KEYWORDS_PATH);
-        private static readonly IDictionary<string, IKeyword> Keywords = CreateKeywords;
+        private static readonly IDictionary<string, Keyword> Keywords = CreateKeywords;
 
-        public static void Register(IKeyword keyword) =>
-            Keywords.TryAdd(keyword.Key, keyword);
-
-        public static void UnRegister(string keyword) =>
-            Keywords.Remove(keyword, out _);
-
-        private static ConcurrentDictionary<string, IKeyword> CreateKeywords => new()
+        private static ConcurrentDictionary<string, Keyword> CreateKeywords => new()
         {
             ["OR"] = KeywordsLoader.Of("OR"),
             ["AND"] = KeywordsLoader.Of("AND"),
@@ -27,7 +21,7 @@ namespace FlexibleQuery.Keywords
             ["EQUAL"] = KeywordsLoader.Of("EQUAL")
         };
 
-        public static KeyValuePair<string, IKeyword>? GetByAbbreviations(string key) =>
+        public static KeyValuePair<string, Keyword>? GetByAbbreviations(string key) =>
             Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key));
     }
 }
