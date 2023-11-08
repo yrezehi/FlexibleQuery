@@ -3,21 +3,20 @@ using System.Collections.Concurrent;
 
 namespace FlexibleQuery.Keywords
 {
-    public class KeywordDictionary
+    public static class KeywordDictionary
     {
-        private readonly IDictionary<string, IKeyword> Keywords;
-        private readonly KeywordsLoader KeywordsLoader;
+        private static string KEYWORDS_PATH = "";
 
-        public KeywordDictionary(string keywordsPath) =>
-            (Keywords, KeywordsLoader) = (CreateKeywords(), new KeywordsLoader(keywordsPath));
+        private static readonly IDictionary<string, IKeyword> Keywords = CreateKeywords;
+        private static readonly KeywordsLoader KeywordsLoader = new KeywordsLoader(KEYWORDS_PATH);
 
-        public void Register(IKeyword keyword) =>
+        public static void Register(IKeyword keyword) =>
             Keywords.TryAdd(keyword.Key, keyword);
 
-        public void UnRegister(string keyword) =>
+        public static void UnRegister(string keyword) =>
             Keywords.Remove(keyword, out _);
 
-        private ConcurrentDictionary<string, IKeyword> CreateKeywords() => new()
+        private static ConcurrentDictionary<string, IKeyword> CreateKeywords => new()
         {
             ["OR"] = KeywordsLoader.Of("OR"),
             ["AND"] = KeywordsLoader.Of("AND"),
@@ -28,7 +27,7 @@ namespace FlexibleQuery.Keywords
             ["EQUAL"] = KeywordsLoader.Of("EQUAL")
         };
 
-        public string GetByAbbreviations(string key) =>
+        public static string GetByAbbreviations(string key) =>
             Keywords.FirstOrDefault(keyword => keyword.Value.Abbreviations.Contains(key)).Key;
     }
 }
