@@ -9,19 +9,25 @@ namespace Flexible.Expressions
 
         public static Expression<Func<T, bool>> BuildPredicate<T>(IEnumerable<string> queries)
         {
+            Expression predicate = null;
 
-            for(int index = 1; index < queries.Count() - 1; index++)
+
+            for (int index = 1; index < queries.Count() - 1; index++)
             {
                 var query = queries.ElementAt(index);
 
                 if (KeywordDictionary.Contains(query))
                 {
-                    var expressionTree = GetExpressionTree(queries.ElementAt(index - 1), queries.ElementAt(index + 1));
+                    var methodExpression = GetExpressionTree(queries.ElementAt(index - 1), queries.ElementAt(index + 1));
+
+                    predicate = predicate != null ? 
+                        Expression.Or(predicate, methodExpression) 
+                            :
+                        methodExpression;
                 }
             }
 
-            throw new NotImplementedException();
-
+            return Expression.Lambda<Func<T, bool>>(predicate);
         }
 
         private static MethodCallExpression GetExpressionTree<T>(string propertyName, T propertyValue) =>
