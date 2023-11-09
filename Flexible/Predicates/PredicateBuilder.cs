@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Flexible.Expressions
 {
-    public static class LINQBuilder
+    public static class PredicateBuilder
     {
 
         public static Expression<Func<T, bool>> BuildPredicate<T>(IEnumerable<string> queries)
@@ -27,7 +27,7 @@ namespace Flexible.Expressions
                 }
             }
 
-            return Expression.Lambda<Func<T, bool>>(predicate);
+            return Expression.Lambda<Func<T, bool>>(predicate!);
         }
 
         private static MethodCallExpression GetExpressionTree<T>(string propertyName, T propertyValue) =>
