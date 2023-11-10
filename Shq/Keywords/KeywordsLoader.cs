@@ -1,15 +1,15 @@
 ﻿using System.IO;
 using System.Text.Json;
 
-namespace FlexibleQuery.Keywords
+namespace Shq.Shq.Keywords
 {
     public class KeywordsLoader
     {
         public IDictionary<string, Keyword> Keywords { get; set; }
 
         public KeywordsLoader(string path) =>
-            (Keywords) = (this.Load(path));
-        
+            Keywords = Load(path);
+
 
         private IDictionary<string, Keyword> Load(string path)
         {

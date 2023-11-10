@@ -1,7 +1,7 @@
 ﻿using FlexibleQuery.Keywords.Abstracts;
 using System.Collections.Concurrent;
 
-namespace FlexibleQuery.Keywords
+namespace Shq.Shq.Keywords
 {
     public static class KeywordDictionary
     {

@@ -1,12 +1,12 @@
-﻿using FlexibleQuery.Keywords.Abstracts;
+﻿using Shq.Shq.Keywords.Abstracts;
 
-namespace FlexibleQuery.Keywords
+namespace Shq.Shq.Keywords
 {
     public class Keyword : IKeyword
     {
         public IList<string> Abbreviations { get; set; }
 
         public Keyword(IList<string> abbreviations) =>
-            (Abbreviations) = (abbreviations);
+            Abbreviations = abbreviations;
     }
 }

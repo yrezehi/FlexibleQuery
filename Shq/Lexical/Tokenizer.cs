@@ -1,8 +1,9 @@
-﻿using FlexibleQuery.Keywords;
+﻿using Shq.Shq.Keywords;
 
-namespace FlexibleQuery.Lexical
+namespace Shq.Shq.Lexical
 {
-    public static class Tokenizer {
+    public static class Tokenizer
+    {
 
         // Yes it supposed to be null
         private static readonly char[]? TOKEN_SEPARTOR = null;
@@ -15,17 +16,17 @@ namespace FlexibleQuery.Lexical
             }
 
             var tokens = new List<string>();
-            
-            foreach(var word in query.Split(TOKEN_SEPARTOR))
+
+            foreach (var word in query.Split(TOKEN_SEPARTOR))
             {
                 var abbreviations = KeywordDictionary.GetByAbbreviations(word);
-                
-                if(abbreviations != null)
+
+                if (abbreviations != null)
                 {
                     tokens.Add(word);
                 }
             }
-            
+
             return tokens;
         }
     }

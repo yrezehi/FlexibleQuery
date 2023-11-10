@@ -1,8 +1,8 @@
-﻿using FlexibleQuery.Keywords;
+﻿using Shq.Shq.Keywords;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Flexible.Expressions
+namespace Shq.Shq.Predicates
 {
     public static class PredicateBuilder
     {
@@ -20,8 +20,8 @@ namespace Flexible.Expressions
                 {
                     var methodExpression = GetExpressionTree(queries.ElementAt(index - 1), queries.ElementAt(index + 1));
 
-                    predicate = predicate != null ? 
-                        Expression.Or(predicate, methodExpression) 
+                    predicate = predicate != null ?
+                        Expression.Or(predicate, methodExpression)
                             :
                         methodExpression;
                 }
@@ -31,7 +31,7 @@ namespace Flexible.Expressions
         }
 
         private static MethodCallExpression GetExpressionTree<T>(string propertyName, T propertyValue) =>
-            ExpressionCall<T>(propertyValue, BodyExpression(ParameterExpression<T>(), propertyName), MethodInformation<T>());
+            ExpressionCall(propertyValue, BodyExpression(ParameterExpression<T>(), propertyName), MethodInformation<T>());
 
         private static ParameterExpression ParameterExpression<T>() =>
             Expression.Parameter(typeof(T), "property");

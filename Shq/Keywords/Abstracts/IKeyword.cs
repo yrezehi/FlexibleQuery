@@ -1,4 +1,4 @@
-﻿namespace FlexibleQuery.Keywords.Abstracts
+﻿namespace Shq.Shq.Keywords.Abstracts
 {
     public interface IKeyword
     {
