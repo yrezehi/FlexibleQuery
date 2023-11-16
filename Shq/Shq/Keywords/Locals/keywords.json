@@ -1,0 +1,17 @@
+{
+  "OR": {
+    "Abbreviations": [ "or", "|", "||", "او" ]
+  },
+  "AND": {
+    "Abbreviations": [ "AND", "&", "&&", "و" ]
+  },
+    "LESS-THAN": {
+      "Abbreviations": [ "less", "less than", "<", "اقل", "اقل من" ]
+    },
+  "MORE-THAN": {
+    "Abbreviations": [ "more", "more than", ">", "اكثر", "اكثر من" ]
+  },
+  "EQUAL": {
+    "Abbreviations": [ "equal", "equals", "=", "==", "يساوي" ]
+  }
+}
