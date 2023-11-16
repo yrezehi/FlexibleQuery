@@ -11,7 +11,6 @@ namespace Shq.Predicates
         {
             Expression predicate = null;
 
-
             for (int index = 1; index < queries.Count() - 1; index++)
             {
                 var query = queries.ElementAt(index);

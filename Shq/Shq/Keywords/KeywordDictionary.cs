@@ -1,5 +1,4 @@
-﻿using FlexibleQuery.Keywords.Abstracts;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 
 namespace Shq.Keywords
 {
