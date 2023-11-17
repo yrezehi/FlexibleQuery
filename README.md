@@ -16,6 +16,8 @@ It should produce below LINQ context
   (x => x.color.Contains("red") && x.model = 2023) 
 ```
 
+Also provides UI library for auto-complete and query building advisor
+
 <br/>
 
 > ℹ️ Not Close To Completion
