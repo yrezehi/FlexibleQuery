@@ -1,6 +1,14 @@
 # Simple HTTP Query (Shq)
 
-Query over http with UI library to provide simple interface for querying a database (NOT IT'S NOT A DIRECT SQL QUERY) with security layer.
+<p align="center">
+  Query over http with UI library to provide simple interface for querying a database (NOT IT'S NOT A DIRECT SQL QUERY) with security layer.
+</p>
+
+<h1 align="center">
+  <br>
+  <img src="banner.png" alt="shq-logo" width="500">
+  <br>
+</h1>
 
 ## Expectation *Query Mapper* 
 
