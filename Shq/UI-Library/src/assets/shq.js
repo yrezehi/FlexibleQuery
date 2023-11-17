@@ -12,16 +12,26 @@
 var shq = function () {
     var history = [];
 
-    (function setup() {
-        document.querySelector("#shq").addEventListener("click", function(_){
-            var popoverElement = document.querySelector("#shq-popover");
-            popoverElement.style.display = "block";
-            popoverElement.style.transition = "opacity 0.1s linear";
+    var shqElement = document.querySelector("#shq");
+    var shqPopoverElement = document.querySelector("#shq-popover");
 
-            setInterval(function () {
-                popoverElement.style.opacity = "1";
+    (function setup() {
+        shqPopoverElement.style.transition = "opacity 0.25s linear";
+
+        shqElement.addEventListener("click", function(_){
+            shqPopoverElement.style.display = "block";
+            setTimeout(function () {
+                shqPopoverElement.style.opacity = "1";
             }, 200);
         });
+        shqPopoverElement.addEventListener("click", function(event){
+            if(event.target.id === "shq-popover"){
+                shqPopoverElement.style.opacity = "0";
+                setTimeout(function() {
+                    shqPopoverElement.style.display = "none";
+                }, 200);
+            }
+        })
     })();
 
     return function () {
