@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Keywords\Locals\keywords.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Keywords\Locals\keywords.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -23,7 +23,7 @@ namespace Shq.Lexical
 
                 if (abbreviations != null)
                 {
-                    tokens.Add(word);
+                    tokens.Add(abbreviations.Value.Key);
                 }
             }
 
