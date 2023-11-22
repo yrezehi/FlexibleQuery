@@ -21,9 +21,12 @@ namespace Shq.Lexical
             {
                 var abbreviations = KeywordDictionary.GetByAbbreviations(word);
 
-                if (abbreviations != null)
+                if (abbreviations?.Key != null)
                 {
                     tokens.Add(abbreviations.Value.Key);
+                } else
+                {
+                    tokens.Add(word);
                 }
             }
 

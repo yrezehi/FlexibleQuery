@@ -1,9 +1,10 @@
-﻿using Shq.Lexical;
+﻿using Sample.Entity;
+using Shq.Lexical;
 using Shq.Predicates;
 
-string query = "USER = 10";
+string query = "Username = AKHMED";
 
 var tokenizedQuery = Tokenizer.Tokenize(query);
-var predicates = PredicateBuilder.BuildPredicate<string>(tokenizedQuery);
+var predicates = PredicateBuilder.BuildPredicate<SampleEntity, string>(tokenizedQuery);
 
 Console.WriteLine("Program Finished Execution!");

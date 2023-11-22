@@ -7,7 +7,7 @@ namespace Shq.Predicates
     public static class PredicateBuilder
     {
 
-        public static Expression<Func<T, bool>> BuildPredicate<T>(IEnumerable<string> queries)
+        public static Expression<Func<T, bool>> BuildPredicate<T, TProperty>(IEnumerable<string> queries)
         {
             Expression predicate = null;
 
@@ -17,7 +17,7 @@ namespace Shq.Predicates
 
                 if (KeywordDictionary.Contains(query))
                 {
-                    var methodExpression = GetExpressionTree(queries.ElementAt(index - 1), queries.ElementAt(index + 1));
+                    var methodExpression = GetExpressionTree<T, TProperty>(queries.ElementAt(index - 1), queries.ElementAt(index + 1));
 
                     predicate = predicate != null ?
                         Expression.Or(predicate, methodExpression)
@@ -29,8 +29,8 @@ namespace Shq.Predicates
             return Expression.Lambda<Func<T, bool>>(predicate!);
         }
 
-        private static MethodCallExpression GetExpressionTree<T>(string propertyName, T propertyValue) =>
-            ExpressionCall(propertyValue, BodyExpression(ParameterExpression<T>(), propertyName), MethodInformation<T>());
+        private static MethodCallExpression GetExpressionTree<T, TProperty>(string propertyName, string propertyValue) =>
+            ExpressionCall(propertyValue, BodyExpression(ParameterExpression<T>(), propertyName), MethodInformation<TProperty>());
 
         private static ParameterExpression ParameterExpression<T>() =>
             Expression.Parameter(typeof(T), "property");
